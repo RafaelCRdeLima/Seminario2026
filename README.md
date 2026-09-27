@@ -39,7 +39,7 @@ no projetor. Para PDF, imprima do navegador: um slide por página.
 
 ## Estrutura
 
-55 slides em quatro partes, cada uma com capa própria:
+56 slides em quatro partes, cada uma com capa própria:
 
 | parte | cor | conteúdo |
 |---|---|---|
@@ -65,14 +65,15 @@ Todos calculam no navegador, sem rede.
 
 | slide | o que faz |
 |---|---|
-| 14 | P(ν_α→ν_β) a dois sabores contra L; faixa mín–máx por pixel quando a oscilação fica rápida |
-| 15 | Super-K: sobrevivência de ν_μ contra cos θ_z, assimetria cima/baixo comparada com −0,296 ± 0,048 |
-| 25 | geodésicas nulas de Schwarzschild, u″ + u = (3/2) r_s u², RK4 |
-| 26 | compacidade r_s/R da Terra ao horizonte; redshift, relógio, desvio exato da luz rasante; perfil de Flamm |
-| 35 | fase Φ = (Δm²/2E∞)∫dr/√(1−b²B/r²) (Fornengo et al. 1997) ao longo da órbita, contra a reta plana |
-| 36 | lente pontual: franja por autoestado de massa ∝ m_k²Δb²/4E — sensível à massa absoluta e ao ordenamento |
-| 47 | painel do GHOST: perfil de M15-7b, ressonância H, P_H(t) e a frente de perto; a largura da frente é o controle |
-| 39 | DUNE: P(ν_μ→ν_e) e P(ν̄) a 1285 km com matéria (Cervera et al. 2000), δ_CP e ordenamento |
+| 14 | duas bases: eixos de sabor e de massa girados por θ, relógios de fase de ν₁ e ν₂, medições simuladas em massa (constantes) e em sabor (oscilam) |
+| 15 | P(ν_α→ν_β) a dois sabores contra L; faixa mín–máx por pixel quando a oscilação fica rápida |
+| 16 | Super-K: sobrevivência de ν_μ contra cos θ_z, assimetria cima/baixo comparada com −0,296 ± 0,048 |
+| 26 | geodésicas nulas de Schwarzschild, u″ + u = (3/2) r_s u², RK4 |
+| 27 | compacidade r_s/R da Terra ao horizonte; redshift, relógio, desvio exato da luz rasante; perfil de Flamm |
+| 36 | fase Φ = (Δm²/2E∞)∫dr/√(1−b²B/r²) (Fornengo et al. 1997) ao longo da órbita, contra a reta plana |
+| 37 | lente pontual: franja por autoestado de massa ∝ m_k²Δb²/4E — sensível à massa absoluta e ao ordenamento |
+| 48 | painel do GHOST: perfil de M15-7b, ressonância H, P_H(t) e a frente de perto; a largura da frente é o controle |
+| 40 | DUNE: P(ν_μ→ν_e) e P(ν̄) a 1285 km com matéria (Cervera et al. 2000), δ_CP e ordenamento |
 
 Gráficos de dados (não interativos): espectro beta, espectro solar (fluxos B16-GS98, formas
 simplificadas), déficit solar (razões em relação ao BP04), plano de fluxos do SNO 2002 e o espectro de
