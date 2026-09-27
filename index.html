@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07080e">
+<title>Neutrinos em espaço-tempo curvo · Rafael C. R. de Lima</title>
+<meta name="description" content="Seminário na II Escola Brasileira de Neutrinos, 02 de outubro de 2026 — oscilação de sabor quando a propagação segue uma geodésica.">
+<meta name="author" content="Rafael Camargo Rodrigues de Lima">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Neutrinos em espaço-tempo curvo">
+<meta property="og:description" content="II Escola Brasileira de Neutrinos · 02/10/2026 · Rafael C. R. de Lima (UDESC/CCT)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,300..700;1,400&family=Literata:ital,opsz,wght@0,7..72,300..600;1,7..72,300..500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --display: "Instrument Serif", "Times New Roman", Georgia, serif;
+    --read: "Literata", Georgia, serif;
+    --ui: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --bg: #07080e;
+    --surface: #10131d;
+    --line: rgba(255,255,255,.10);
+    --text: #eef0f6;
+    --text-2: #a9b0c2;
+    --text-3: #6c7488;
+
+    /* os três sabores — violeta e turquesa vêm da página pessoal */
+    --nu-e: #9e8cff;
+    --nu-mu: #56e1d0;
+    --nu-tau: #ffb86b;
+
+    --W: 1920px;
+    --H: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); }
+  body { font-family: var(--ui); -webkit-font-smoothing: antialiased; }
+
+  /* ---------- palco 16:9 fixo, escalado para caber ---------- */
+  #stage {
+    position: absolute; left: 50%; top: 50%;
+    width: var(--W); height: var(--H);
+    transform: translate(-50%, -50%) scale(var(--s, 1));
+    transform-origin: center;
+  }
+  .slide {
+    position: absolute; inset: 0; overflow: hidden;
+    background: var(--bg);
+    opacity: 0; visibility: hidden;
+    transition: opacity .45s ease, visibility 0s linear .45s;
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .45s ease; z-index: 2; }
+  .notes { display: none; }
+
+  /* ---------- CAPA ---------- */
+  .cover canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .cover .veil {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(7,8,14,.96) 0%, rgba(7,8,14,.86) 34%, rgba(7,8,14,.25) 60%, rgba(7,8,14,0) 75%),
+      radial-gradient(ellipse 120% 90% at 70% 50%, transparent 55%, rgba(7,8,14,.85) 100%);
+  }
+  .cover .grain {
+    position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .cover .top {
+    position: absolute; left: 140px; right: 140px; top: 92px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 21px; letter-spacing: .22em; text-transform: uppercase; color: var(--text-2);
+  }
+  .school { display: flex; align-items: center; gap: 22px; }
+  .flavours { display: inline-flex; gap: 7px; }
+  .flavours i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+  .flavours i:nth-child(1) { background: var(--nu-e);   box-shadow: 0 0 14px var(--nu-e); }
+  .flavours i:nth-child(2) { background: var(--nu-mu);  box-shadow: 0 0 14px var(--nu-mu); }
+  .flavours i:nth-child(3) { background: var(--nu-tau); box-shadow: 0 0 14px var(--nu-tau); }
+  .school b { color: var(--text); font-weight: 600; }
+  .date { font-variant-numeric: tabular-nums; }
+  .date b { color: var(--text); font-weight: 600; }
+
+  .cover .main { position: absolute; left: 140px; top: 236px; width: 1500px; }
+  .kicker {
+    font-size: 20px; letter-spacing: .3em; text-transform: uppercase; color: var(--nu-mu);
+    display: flex; align-items: center; gap: 18px; margin: 0 0 34px;
+  }
+  .kicker::before { content: ""; width: 64px; height: 1px; background: currentColor; opacity: .7; }
+  .cover h1 {
+    font-family: var(--display); font-weight: 400; margin: 0;
+    font-size: 168px; line-height: .92; letter-spacing: -.012em;
+  }
+  .cover h1 em {
+    font-style: italic; display: inline-block; padding-right: .08em;
+    background: linear-gradient(100deg, var(--nu-e) 0%, var(--nu-mu) 52%, var(--nu-tau) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede {
+    font-family: var(--read); font-weight: 300; font-size: 33px; line-height: 1.45;
+    color: var(--text-2); max-width: 980px; margin: 42px 0 0;
+  }
+  .lede i { color: var(--text); font-style: italic; }
+
+  .phase {
+    display: inline-flex; align-items: baseline; gap: 26px;
+    padding: 16px 28px 18px; border-radius: 999px;
+    border: 1px solid rgba(158,140,255,.28);
+    background: linear-gradient(90deg, rgba(158,140,255,.08), rgba(86,225,208,.05));
+    backdrop-filter: blur(6px);
+  }
+  .phase .eq { font-family: var(--display); font-size: 40px; color: var(--text); letter-spacing: .01em; }
+  .phase .eq i { font-style: italic; }
+  .phase .eq sub, .phase .eq sup { font-size: .55em; }
+  .phase small { font-size: 17px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-3); }
+
+  .cover .bottom {
+    position: absolute; left: 140px; right: 140px; bottom: 96px;
+    display: flex; justify-content: space-between; align-items: end;
+  }
+  .author .name { font-family: var(--display); font-size: 56px; line-height: 1; margin: 0 0 14px; }
+  .author .aff { font-size: 22px; color: var(--text-2); letter-spacing: .02em; margin: 0; }
+  .author .aff span { color: var(--text-3); padding: 0 .5em; }
+  .right { display: flex; flex-direction: column; align-items: flex-end; gap: 26px; }
+  .links { font-size: 18px; letter-spacing: .06em; color: var(--text-3); }
+  .links span { padding: 0 .7em; }
+  .links a { color: var(--text-2); text-decoration: none; border-bottom: 1px solid rgba(158,140,255,.35); padding-bottom: 2px; }
+  .links a:hover { color: var(--text); border-color: var(--nu-mu); }
+
+  .legend {
+    position: absolute; right: 140px; top: 188px;
+    display: flex; gap: 30px; font-family: var(--display); font-size: 30px; color: var(--text-2);
+  }
+  .legend > span { display: inline-flex; align-items: center; gap: 10px; }
+  .legend > span::before { content: ""; width: 26px; height: 2px; border-radius: 2px; background: var(--c); box-shadow: 0 0 10px var(--c); }
+  .legend b { font-weight: 400; }
+  .legend sub { font-size: .6em; font-style: italic; }
+
+  /* entrada da capa */
+  @media (prefers-reduced-motion: no-preference) {
+    .cover.active .rise { animation: rise 1.1s cubic-bezier(.2,.7,.1,1) both; }
+    .cover.active .rise.d1 { animation-delay: .10s; }
+    .cover.active .rise.d2 { animation-delay: .22s; }
+    .cover.active .rise.d3 { animation-delay: .38s; }
+    .cover.active .rise.d4 { animation-delay: .52s; }
+    .cover.active .rise.d5 { animation-delay: .70s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(26px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+  }
+
+  /* ---------- cromo: progresso, notas, ajuda ---------- */
+  .progress { position: fixed; left: 0; right: 0; bottom: 0; height: 3px; z-index: 20; background: rgba(255,255,255,.06); }
+  .progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--nu-e), var(--nu-mu), var(--nu-tau)); transition: width .3s ease; }
+  .counter {
+    position: fixed; right: 18px; bottom: 12px; z-index: 20;
+    font: 12px var(--mono); color: var(--text-3); letter-spacing: .08em;
+    opacity: 0; transition: opacity .3s;
+  }
+  body:hover .counter { opacity: 1; }
+
+  #notes-panel {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; max-height: 34vh; overflow: auto;
+    padding: 18px 28px 24px; background: rgba(12,14,22,.96); border-top: 1px solid var(--line);
+    font: 17px/1.55 var(--read); color: var(--text-2); display: none;
+  }
+  body.show-notes #notes-panel { display: block; }
+  #notes-panel h4 { font: 600 12px var(--ui); letter-spacing: .2em; text-transform: uppercase; color: var(--nu-mu); margin: 0 0 8px; }
+
+  #help {
+    position: fixed; inset: 0; z-index: 50; display: none; place-items: center; background: rgba(4,5,9,.72); backdrop-filter: blur(4px);
+  }
+  #help.open { display: grid; }
+  #help .box { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px 34px; min-width: 360px; }
+  #help h3 { font: 400 34px var(--display); margin: 0 0 16px; }
+  #help dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 22px; margin: 0; font-size: 15px; color: var(--text-2); }
+  #help dt { font-family: var(--mono); color: var(--text); }
+  #help dd { margin: 0; }
+
+  /* visão geral */
+  body.overview #stage { transform: translate(-50%, -50%) scale(var(--s, 1)); }
+  body.overview .slide { position: relative; }
+
+  /* ---------- impressão: um slide por página ---------- */
+  @page { size: 1920px 1080px; margin: 0; }
+  @media print {
+    html, body { overflow: visible; height: auto; }
+    #stage { position: static; transform: none; }
+    .slide { position: relative; width: var(--W); height: var(--H); opacity: 1; visibility: visible; page-break-after: always; break-after: page; }
+    .progress, .counter, #notes-panel, #help { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main id="stage" aria-live="polite">
+
+  <!-- ============================ 01 · CAPA ============================ -->
+  <section class="slide cover" data-title="Capa">
+    <canvas id="spacetime" aria-hidden="true"></canvas>
+    <div class="veil"></div>
+    <div class="grain"></div>
+
+    <header class="top rise d1">
+      <div class="school">
+        <span class="flavours" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><b>II</b> Escola Brasileira de Neutrinos</span>
+      </div>
+      <div class="date">Sexta · <b>02 · 10 · 2026</b></div>
+    </header>
+
+    <div class="legend rise d5" aria-label="Sabores">
+      <span style="--c: var(--nu-e)"><b>ν<sub>e</sub></b></span>
+      <span style="--c: var(--nu-mu)"><b>ν<sub>μ</sub></b></span>
+      <span style="--c: var(--nu-tau)"><b>ν<sub>τ</sub></b></span>
+    </div>
+
+    <div class="main">
+      <p class="kicker rise d1">Seminário</p>
+      <h1 class="rise d2">Neutrinos em<br><em>espaço-tempo curvo</em></h1>
+      <p class="lede rise d3">O que acontece com a oscilação de sabor quando a viagem segue uma <i>geodésica</i> — e não uma reta.</p>
+    </div>
+
+    <footer class="bottom rise d5">
+      <div class="author">
+        <p class="name">Rafael C. R. de Lima</p>
+        <p class="aff">Departamento de Física<span>·</span>UDESC/CCT<span>·</span>Joinville</p>
+      </div>
+      <div class="right">
+        <div class="phase">
+          <span class="eq">Φ<sub><i>k</i></sub> = ∫ <i>p</i><sub>μ</sub><sup>(<i>k</i>)</sup> <i>dx</i><sup>μ</sup></span>
+          <small>fase covariante</small>
+        </div>
+        <div class="links">
+          <a href="https://rafael-lima.pages.dev">rafael-lima.pages.dev</a><span>·</span><a href="https://github.com/RafaelCRdeLima/Seminario2026">github.com/RafaelCRdeLima/Seminario2026</a>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="notes">
+      Boa tarde. A pergunta do seminário cabe numa linha: a fase de oscilação é a integral de p·dx ao longo do caminho —
+      e, quando o caminho é uma geodésica num espaço-tempo curvo, essa integral muda. As trajetórias ao fundo são isso:
+      pacotes que trocam de cor (sabor) enquanto o poço gravitacional entorta o caminho e altera o ritmo da fase.
+    </aside>
+  </section>
+
+</main>
+
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+<div class="counter" id="counter"></div>
+<div id="notes-panel"><h4>Notas</h4><div id="notes-body"></div></div>
+<div id="help" role="dialog" aria-label="Atalhos">
+  <div class="box">
+    <h3>Atalhos</h3>
+    <dl>
+      <dt>→ / espaço</dt><dd>próximo</dd>
+      <dt>←</dt><dd>anterior</dd>
+      <dt>Home / End</dt><dd>primeiro / último</dd>
+      <dt>F</dt><dd>tela cheia</dd>
+      <dt>N</dt><dd>notas do apresentador</dd>
+      <dt>?</dt><dd>esta ajuda</dd>
+    </dl>
+  </div>
+</div>
+
+<script>
+/* ============================ motor dos slides ============================ */
+const Deck = (() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  const notesBody = document.getElementById('notes-body');
+  const help = document.getElementById('help');
+  let index = 0;
+
+  function fit() {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.setProperty('--s', s);
+    window.dispatchEvent(new CustomEvent('stagefit', { detail: s }));
+  }
+
+  function show(i, push = true) {
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((el, k) => el.classList.toggle('active', k === index));
+    bar.style.width = slides.length > 1 ? (100 * index / (slides.length - 1)) + '%' : '100%';
+    counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    const n = slides[index].querySelector('.notes');
+    notesBody.textContent = n ? n.textContent.trim().replace(/\s+/g, ' ') : '—';
+    if (push) history.replaceState(null, '', '#' + (index + 1));
+    window.dispatchEvent(new CustomEvent('slidechange', { detail: { index, slide: slides[index] } }));
+  }
+
+  addEventListener('keydown', e => {
+    if (e.target.closest('input, textarea, select')) return;
+    const k = e.key;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(k)) { e.preventDefault(); show(index + 1); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(k)) { e.preventDefault(); show(index - 1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(slides.length - 1);
+    else if (k.toLowerCase() === 'f') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+    else if (k.toLowerCase() === 'n') document.body.classList.toggle('show-notes');
+    else if (k === '?') help.classList.toggle('open');
+    else if (k === 'Escape') { help.classList.remove('open'); document.body.classList.remove('show-notes'); }
+  });
+  help.addEventListener('click', () => help.classList.remove('open'));
+
+  let x0 = null;
+  addEventListener('touchstart', e => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 55) show(index + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive: true });
+  addEventListener('hashchange', () => show((parseInt(location.hash.slice(1)) || 1) - 1, false));
+  addEventListener('resize', fit);
+
+  fit();
+  show((parseInt(location.hash.slice(1)) || 1) - 1, false);
+  return { show, get index() { return index; }, slides };
+})();
+
+/* ============================ capa: poço + neutrinos ============================ */
+(() => {
+  const cv = document.getElementById('spacetime');
+  const ctx = cv.getContext('2d');
+  const slide = cv.closest('.slide');
+  const W = 1920, H = 1080;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Superfície de mergulho: profundidade z(r) de um poço suave, grade no plano (X, Y).
+  const R = 4.8;                 // meia-largura da grade, em unidades do plano
+  const A = 0.9, a = 0.5;       // profundidade e núcleo do poço
+  const zOf = r => A / Math.sqrt(r * r + a * a) - A / Math.sqrt(R * R + a * a);
+  const CX = 1370, CY = 440, SC = 200, TILT = 0.95, PERSP = 11;
+  function project(X, Y) {
+    const r = Math.hypot(X, Y);
+    const f = PERSP / (PERSP - Y * Math.sin(TILT));
+    return [CX + X * SC * f, CY + (Y * Math.cos(TILT) + zOf(r) * Math.sin(TILT) * 1.15) * SC * f, r];
+  }
+
+  const flav = [[158, 140, 255], [86, 225, 208], [255, 184, 107]];
+  function flavour(phi) {                         // ciclo suave e → μ → τ → e
+    const t = ((phi / (2 * Math.PI)) * 3 % 3 + 3) % 3;
+    const k = Math.floor(t), u = t - k, s = u * u * (3 - 2 * u);
+    const c0 = flav[k], c1 = flav[(k + 1) % 3];
+    return [0, 1, 2].map(j => Math.round(c0[j] + (c1[j] - c0[j]) * s));
+  }
+
+  let grid = null, ratio = 1;
+  function resize(s) {
+    ratio = Math.min(2.5, (s || 1) * (devicePixelRatio || 1));
+    cv.width = Math.round(W * ratio); cv.height = Math.round(H * ratio);
+    grid = document.createElement('canvas');
+    grid.width = cv.width; grid.height = cv.height;
+    drawGrid(grid.getContext('2d'));
+  }
+
+  function drawGrid(g) {
+    g.setTransform(ratio, 0, 0, ratio, 0, 0);
+    g.lineWidth = 1.1;
+    const N = 34, step = 2 * R / N, sub = 90;
+    const line = (pts) => {
+      for (let i = 1; i < pts.length; i++) {
+        const [x0, y0, r0] = pts[i - 1], [x1, y1] = pts[i];
+        const edge = Math.max(0, 1 - Math.pow(r0 / R, 3));
+        const deep = Math.max(0, 1 - r0 / 1.6);
+        const al = 0.05 + 0.26 * edge + 0.25 * deep;
+        g.strokeStyle = `rgba(${Math.round(158 - 72 * deep)},${Math.round(140 + 85 * deep)},${Math.round(255 - 47 * deep)},${al})`;
+        g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y1); g.stroke();
+      }
+    };
+    for (let i = 0; i <= N; i++) {
+      const c = -R + i * step, h = [], v = [];
+      for (let j = 0; j <= sub; j++) {
+        const t = -R + j * 2 * R / sub;
+        if (Math.hypot(c, t) <= R) { h.push(project(t, c)); v.push(project(c, t)); }
+      }
+      line(h); line(v);
+    }
+    // fundo do poço: brilho e anel de fótons
+    const [bx, by] = project(0, 0);
+    const glow = g.createRadialGradient(bx, by, 0, bx, by, 190);
+    glow.addColorStop(0, 'rgba(86,225,208,.22)');
+    glow.addColorStop(.35, 'rgba(158,140,255,.10)');
+    glow.addColorStop(1, 'rgba(158,140,255,0)');
+    g.fillStyle = glow; g.beginPath(); g.arc(bx, by, 190, 0, 7); g.fill();
+    g.fillStyle = '#05060b';
+    g.beginPath(); g.ellipse(bx, by, 34, 34 * Math.cos(TILT) * 1.3, 0, 0, 7); g.fill();
+    g.lineWidth = 2; g.strokeStyle = 'rgba(214,206,255,.75)'; g.shadowColor = '#9e8cff'; g.shadowBlur = 22;
+    g.beginPath(); g.ellipse(bx, by, 38, 38 * Math.cos(TILT) * 1.3, 0, 0, 7); g.stroke();
+    g.shadowBlur = 0;
+  }
+
+  // Neutrinos: movem-se no plano, desviados pelo poço; a fase avança mais devagar
+  // onde o potencial é fundo (fator de lapso), então as cores "atrasam" perto do centro.
+  const TRAIL = 110;
+  const parts = [];
+  function spawn(pre) {
+    const Y = (Math.random() * 2 - 1) * 2.9;
+    const p = { X: -R * 0.62, Y, age: 0, vx: 1, vy: (Math.random() - .5) * 0.08, phi: Math.random() * 6.28, trail: [],
+                w: 0.75 + Math.random() * 0.5, alive: true };
+    if (pre) { p.X = -R * 0.62 + Math.random() * 1.5 * R; p.age = 2; }
+    parts.push(p);
+  }
+  for (let i = 0; i < 13; i++) spawn(true);
+
+  const K = 1.25, SPEED = 0.62, OMEGA = 2.2;
+  function advance(p, dt) {
+    const r2 = p.X * p.X + p.Y * p.Y, r = Math.sqrt(r2);
+    const acc = K / (r2 + 0.09);
+    p.vx -= acc * p.X / (r + 1e-6) * dt;
+    p.vy -= acc * p.Y / (r + 1e-6) * dt;
+    const v = Math.hypot(p.vx, p.vy);
+    p.vx *= 1 / v; p.vy *= 1 / v;                  // velocidade da luz: só a direção muda
+    p.X += p.vx * SPEED * dt; p.Y += p.vy * SPEED * dt;
+    const lapse = Math.sqrt(Math.max(0.08, 1 - 0.55 / Math.sqrt(r2 + 0.12)));
+    p.phi += OMEGA * p.w * lapse * dt;
+    p.age += dt;
+    if (r < 0.22 || r > R + 0.6) p.alive = false;
+  }
+
+  function frame(dt) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.drawImage(grid, 0, 0);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineCap = 'round';
+
+    for (const p of parts) {
+      if (p.alive) {
+        for (let s = 0; s < 3; s++) advance(p, dt / 3);
+        const [x, y, r] = project(p.X, p.Y);
+        p.trail.push([x, y, flavour(p.phi), Math.max(r, R + 0.2 - Math.min(1, p.age / 1.2) / 1.2)]);
+      }
+      if (p.trail.length > TRAIL || (!p.alive && p.trail.length)) p.trail.shift();
+      const tr = p.trail;
+      for (let i = 1; i < tr.length; i++) {
+        const t = i / tr.length, c = tr[i][2];
+        const fade = Math.min(1, (R + 0.2 - tr[i][3]) * 1.2);
+        ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${(t * t * .85 * fade).toFixed(3)})`;
+        ctx.lineWidth = 0.8 + 2.4 * t;
+        ctx.beginPath(); ctx.moveTo(tr[i - 1][0], tr[i - 1][1]); ctx.lineTo(tr[i][0], tr[i][1]); ctx.stroke();
+      }
+      if (p.alive && tr.length) {
+        const [x, y, c, r] = tr[tr.length - 1];
+        const fade = Math.max(0, Math.min(1, (R + 0.2 - r) * 1.2));
+        const g = ctx.createRadialGradient(x, y, 0, x, y, 16);
+        g.addColorStop(0, `rgba(255,255,255,${.9 * fade})`);
+        g.addColorStop(.25, `rgba(${c[0]},${c[1]},${c[2]},${.8 * fade})`);
+        g.addColorStop(1, `rgba(${c[0]},${c[1]},${c[2]},0)`);
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 16, 0, 7); ctx.fill();
+      }
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    for (let i = parts.length - 1; i >= 0; i--) {
+      if (!parts[i].alive && !parts[i].trail.length) { parts.splice(i, 1); spawn(false); }
+    }
+  }
+
+  let last = 0, raf = 0;
+  function loop(t) {
+    const dt = Math.min(0.05, (t - last) / 1000 || 0.016); last = t;
+    frame(dt);
+    raf = requestAnimationFrame(loop);
+  }
+  function run() {
+    cancelAnimationFrame(raf);
+    if (!slide.classList.contains('active')) return;
+    if (reduce) { for (let i = 0; i < 160; i++) frame(0.03); return; }
+    last = performance.now(); raf = requestAnimationFrame(loop);
+  }
+
+  addEventListener('stagefit', e => { resize(e.detail); run(); });
+  addEventListener('slidechange', run);
+  resize(Math.min(innerWidth / 1920, innerHeight / 1080));
+  run();
+})();
+</script>
+</body>
+</html>
