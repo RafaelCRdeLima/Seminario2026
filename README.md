@@ -3,7 +3,7 @@
 Seminário na **II Escola Brasileira de Neutrinos** — sexta, 02 de outubro de 2026.
 Rafael C. R. de Lima · Departamento de Física · UDESC/CCT · Joinville.
 
-**No ar:** <https://rafaelcrdelima.github.io/Seminario2026/>
+**No ar:** <https://rafael-lima.pages.dev/talks/2026-ebn/> — publicado pela [página pessoal](https://github.com/RafaelCRdeLima/homepage), na seção Talks.
 
 ## Apresentar
 
@@ -97,4 +97,10 @@ Com `prefers-reduced-motion` a animação para e a capa mostra um quadro fixo.
 
 ## Publicação
 
-`push` na `main` → a Action publica `index.html` e `assets/` no GitHub Pages.
+Este repositório é a fonte. A cópia que vai ao ar fica em `homepage/site/talks/2026-ebn/`; depois de
+editar aqui, sincronize e publique a página pessoal:
+
+```bash
+rsync -a --delete --exclude .git --exclude .github --exclude tools --exclude README.md \
+  ./ ~/Codes/homepage/site/talks/2026-ebn/
+```
