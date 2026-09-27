@@ -5,6 +5,15 @@ Rafael C. R. de Lima · Departamento de Física · UDESC/CCT · Joinville.
 
 **No ar:** <https://rafael-lima.pages.dev/talks/2026-ebn/> — publicado pela [página pessoal](https://github.com/RafaelCRdeLima/homepage), na seção Talks.
 
+## Idiomas
+
+`index.html` (português) e `en.html` (inglês) são o mesmo deck, com o mesmo CSS e JS; o `dash.js`
+lê o `<html lang>` e escolhe rótulos e separador decimal pela função `T(pt, en)`. A escolha segue a
+chave `rcrl-lang` da página pessoal (mesmo domínio): quem escolheu EN no site abre direto em inglês;
+sem preferência, vale o idioma do navegador. O canto superior direito tem PT / EN.
+
+**Ao editar um slide, mexa nos dois arquivos.**
+
 ## Apresentar
 
 Um único `index.html`, sem build. Abra direto no navegador ou sirva a pasta:
