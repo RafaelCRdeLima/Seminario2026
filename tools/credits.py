@@ -41,6 +41,10 @@ def build(page, en):
     lic = m['license'] if en else m['license'].replace('Public domain', 'domínio público')
     label = (LABEL_EN.get(key) if en else None) or LABEL.get(key, key)
     rows.append(f'<p class="ref" style="break-inside: avoid; margin: 0 0 6px"><a href="{m["page"]}"><b>{html.escape(label)}</b></a> — {html.escape(artist)} · {html.escape(lic)}</p>')
+  rows.append('<p class="ref" style="break-inside: avoid; margin: 10px 0 6px"><b>' + (
+      'Part IV figures and shock panel</b> — R. C. R. de Lima (GHOST); profiles derived from the Garching CCSN Archive (M15-7b, A. Wongwathanarat); archive files are not redistributed'
+      if en else
+      'Figuras e painel do choque da Parte IV</b> — R. C. R. de Lima (GHOST); perfis derivados do Garching CCSN Archive (M15-7b, A. Wongwathanarat); os arquivos originais não são redistribuídos') + '</p>')
   block = '<!--CREDITS-->\n    ' + '\n    '.join(rows) + '\n    <!--/CREDITS-->'
   out = re.sub(r'<!--CREDITS-->.*?<!--/CREDITS-->', lambda _: block, used, flags=re.S)
   (ROOT / page).write_text(out)
