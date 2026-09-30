@@ -39,19 +39,23 @@ no projetor. Para PDF, imprima do navegador: um slide por página.
 
 ## Estrutura
 
-54 slides em quatro partes, cada uma com capa própria:
+47 slides em **três partes**, cada uma com capa própria, mais duas laminas de
+premissa na abertura.
 
 | parte | cor | conteúdo |
 |---|---|---|
-| I · Neutrinos | violeta | Pauli, Fermi, Cowan–Reines, três sabores, problema solar, Super-K, SNO, MSW, Nobel 2015, Modelo Padrão |
-| II · Espaço-tempo curvo | âmbar | Einstein, Sobral 1919, Schwarzschild, objetos compactos, pulsares e LIGO, colapsares |
-| III · Neutrinos em espaço-tempo curvo | turquesa | SN 1987A, **anatomia da supernova** (fases e tempos, estagnação e revivescimento do choque, o encontro com a ressonância), emissão no poço, fase covariante, lentes, fronteira, DUNE, observatórios |
-| IV · GHOST (resultados) | rosa | a frente de choque na ressonância MSW: critério, largura numérica, custo em P_H, viés no DUNE, a banda (t, E) |
+| abertura | violeta | roteiro e duas premissas: as duas bases (sabor e massa) e a ressonância MSW com o peso do ordenamento |
+| I · Espaço-tempo curvo | âmbar | Einstein, Sobral 1919, Schwarzschild, o que a curvatura faz com um neutrino (redshift e desvio, com números), geodésicas, compacidade, objetos compactos, pulsares e LIGO, a fase covariante e seu dashboard |
+| II · A supernova, e os neutrinos no poço | turquesa | SN 1987A, anatomia da supernova (fases e tempos, estagnação e revivescimento do choque), colapsares e o motor NDAF, emissão dentro do poço, lente gravitacional, fronteira, DUNE e observatórios, onde moram as ressonâncias H e L, e a frente cruzando a H |
+| III · GHOST (resultados) | rosa | adiabaticidade e L_osc, o critério, a largura numérica, o custo em P_H, o viés no DUNE, o mapa em (t, E) e as bandas por progenitor |
 
-A Parte I foi encurtada de 19 para 14 slides em 30/09/2026, por cinco fusões de
-pares que contavam a mesma coisa, e a Parte III ganhou três slides de supernova
-para preparar a Parte IV: sem eles, o deck afirmava que uma onda de choque cruza
-a ressonância sem nunca dizer de onde vem esse choque.
+**Redesenhado em 30/09/2026 para a II Escola Brasileira de Neutrinos.** A escola
+já tem seminários sobre a história do neutrino e sobre oscilação, então a antiga
+Parte I, que gastava 19 slides nisso, foi reduzida a duas laminas de premissa.
+O espaço foi para relatividade, astrofísica e os resultados, que passaram de 10
+para 13 slides. A figura `fig_landau_zener.svg` estava nos assets desde o início
+e nunca tinha ido a um slide; agora ela sustenta a lamina que define L_osc, sem
+a qual o critério de 3 L_osc aparece como número sem origem.
 
 ```text
 index.html           os slides (texto e marcação)
