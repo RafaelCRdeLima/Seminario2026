@@ -74,6 +74,7 @@ Todos calculam no navegador, sem rede.
 
 | slide | o que faz |
 |---|---|
+| 7 | G = 8πT numa estrela uniforme (Schwarzschild interior + exterior): G calculado da métrica por diferenças finitas, T do fluido; massa, posição e velocidade (boost); poço de embedding; maré de Weyl |
 | 14 | duas bases: eixos de sabor e de massa girados por θ, relógios de fase de ν₁ e ν₂, medições simuladas em massa (constantes) e em sabor (oscilam) |
 | 15 | P(ν_α→ν_β) a dois sabores contra L; faixa mín–máx por pixel quando a oscilação fica rápida |
 | 16 | Super-K: sobrevivência de ν_μ contra cos θ_z, assimetria cima/baixo comparada com −0,296 ± 0,048 |
