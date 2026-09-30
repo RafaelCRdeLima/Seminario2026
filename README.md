@@ -120,6 +120,6 @@ Este repositório é a fonte. A cópia que vai ao ar fica em `homepage/site/talk
 editar aqui, sincronize e publique a página pessoal:
 
 ```bash
-rsync -a --delete --exclude .git --exclude .github --exclude tools --exclude privado --exclude README.md \
-  ./ ~/Codes/homepage/site/talks/2026-ebn/
+rsync -a --delete --exclude .git --exclude .gitignore --exclude .github --exclude tools \
+  --exclude privado --exclude README.md ./ ~/Codes/homepage/site/talks/2026-ebn/
 ```
