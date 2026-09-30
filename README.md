@@ -39,14 +39,19 @@ no projetor. Para PDF, imprima do navegador: um slide por página.
 
 ## Estrutura
 
-56 slides em quatro partes, cada uma com capa própria:
+54 slides em quatro partes, cada uma com capa própria:
 
 | parte | cor | conteúdo |
 |---|---|---|
 | I · Neutrinos | violeta | Pauli, Fermi, Cowan–Reines, três sabores, problema solar, Super-K, SNO, MSW, Nobel 2015, Modelo Padrão |
 | II · Espaço-tempo curvo | âmbar | Einstein, Sobral 1919, Schwarzschild, objetos compactos, pulsares e LIGO, colapsares |
-| III · Neutrinos em espaço-tempo curvo | turquesa | SN 1987A, emissão no poço, fase covariante, lentes, fronteira, DUNE, observatórios |
+| III · Neutrinos em espaço-tempo curvo | turquesa | SN 1987A, **anatomia da supernova** (fases e tempos, estagnação e revivescimento do choque, o encontro com a ressonância), emissão no poço, fase covariante, lentes, fronteira, DUNE, observatórios |
 | IV · GHOST (resultados) | rosa | a frente de choque na ressonância MSW: critério, largura numérica, custo em P_H, viés no DUNE, a banda (t, E) |
+
+A Parte I foi encurtada de 19 para 14 slides em 30/09/2026, por cinco fusões de
+pares que contavam a mesma coisa, e a Parte III ganhou três slides de supernova
+para preparar a Parte IV: sem eles, o deck afirmava que uma onda de choque cruza
+a ressonância sem nunca dizer de onde vem esse choque.
 
 ```text
 index.html           os slides (texto e marcação)
