@@ -92,7 +92,7 @@ massas com conteúdo de sabor (NuFIT 6.0).
 
 ## Slide 3
 
-MSW como problema de dois níveis: a matriz H = ½[[V − Δcos2θ, Δ sin2θ], [Δ sin2θ, −(V − Δcos2θ)]] ao vivo, com o meio fixo (centro do Sol, ρYₑ = 100 g/cm³) e a energia varrendo até a diagonal zerar em E_res = 1,89 MeV; aparece "50/50 · Mistura máxima → Ressonância". Ao lado, sin²2θₘ(E) e a composição de ν₂ₘ.
+MSW como problema de dois níveis: a matriz H = ½[[V − Δcos2θ, Δ sin2θ], [Δ sin2θ, −(V − Δcos2θ)]] ao vivo, com o meio fixo (centro do Sol, ρYₑ = 100 g/cm³) e a energia varrendo até a diagonal zerar em E_res = 1,88 MeV; aparece "50/50 · Mistura máxima → Ressonância". Ao lado, sin²2θₘ(E) e a composição de ν₂ₘ.
 
 ## Imagens
 

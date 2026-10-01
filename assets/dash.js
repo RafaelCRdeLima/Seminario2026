@@ -1241,7 +1241,7 @@ riverPanel('river-bh', 6, 'bh');
 /* Animação: a ressonância MSW como cruzamento evitado de dois níveis.
    H = ½ [[V − Δcos2θ, Δ sin2θ], [Δ sin2θ, −(V − Δcos2θ)]],  Δ = Δm²/2E,  V = √2 G_F n_e.
    Meio fixo (centro do Sol, ρYₑ = 100 g/cm³ → V = 7,63×10⁻¹² eV); Δm²₂₁ e θ₁₂ (NuFIT 6.0).
-   A energia varre até a diagonal zerar (E_res = Δm² cos2θ / 2V = 1,89 MeV), para ali, e segue.
+   A energia varre até a diagonal zerar (E_res = Δm² cos2θ / 2V = 1,88 MeV), para ali, e segue.
    θ_m = ½ atan2(Δ sin2θ, Δ cos2θ − V): fração de νₑ no autoestado pesado = sin²θ_m. */
 (() => {
   const cv = document.getElementById('msw-anim'); if (!cv) return;
