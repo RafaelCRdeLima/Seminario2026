@@ -80,7 +80,7 @@ Todos calculam no navegador, sem rede.
 | 15 | P(ν_α→ν_β) a dois sabores contra L; faixa mín–máx por pixel quando a oscilação fica rápida |
 | 16 | Super-K: sobrevivência de ν_μ contra cos θ_z, assimetria cima/baixo comparada com −0,296 ± 0,048 |
 | 26 | geodésicas nulas de Schwarzschild, u″ + u = (3/2) r_s u², RK4 |
-| 27 | compacidade r_s/R da Terra ao horizonte; redshift, relógio, desvio exato da luz rasante; perfil de Flamm |
+| 19–26 | compacidade, um slide por objeto (Terra → horizonte), sem botões: r_s/R da Terra ao horizonte; redshift, relógio, desvio exato da luz rasante; perfil de Flamm |
 | 36 | fase Φ = (Δm²/2E∞)∫dr/√(1−b²B/r²) (Fornengo et al. 1997) ao longo da órbita, contra a reta plana |
 | 37 | lente pontual: franja por autoestado de massa ∝ m_k²Δb²/4E — sensível à massa absoluta e ao ordenamento |
 | 48 | painel do GHOST: perfil de M15-7b, ressonância H, P_H(t) e a frente de perto; a largura da frente é o controle |
