@@ -74,7 +74,7 @@ Todos calculam no navegador, sem rede.
 
 | slide | o que faz |
 |---|---|
-| 7 | a equação de Einstein como bola de poeira (Baez & Bunn 2005): V̈/V = −4π(ρ + Pₓ + P_y + P_z); desvio geodésico com o Riemann calculado da métrica (estrela uniforme, Schwarzschild interior + exterior) contra a diagonal de T; dentro muda o volume, fora a forma (Weyl); matéria fluindo; ritmo dos relógios |
+| 7 | o espaço cai — modelo do rio (Hamilton & Lisle 2008): Schwarzschild em Gullstrand–Painlevé, espaço plano escoando a v = √(r_s/r) c; cascas cúbicas de referenciais em queda livre injetadas na borda e carregadas pelo rio até a estrela de nêutrons ou o horizonte; arrastar gira; perfil da velocidade do rio e do ritmo de um relógio parado |
 | 14 | duas bases: eixos de sabor e de massa girados por θ, relógios de fase de ν₁ e ν₂, medições simuladas em massa (constantes) e em sabor (oscilam) |
 | 15 | P(ν_α→ν_β) a dois sabores contra L; faixa mín–máx por pixel quando a oscilação fica rápida |
 | 16 | Super-K: sobrevivência de ν_μ contra cos θ_z, assimetria cima/baixo comparada com −0,296 ± 0,048 |
