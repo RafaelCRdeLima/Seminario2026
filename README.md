@@ -94,6 +94,10 @@ massas com conteúdo de sabor (NuFIT 6.0).
 
 MSW como problema de dois níveis: a matriz H = ½[[V − Δcos2θ, Δ sin2θ], [Δ sin2θ, −(V − Δcos2θ)]] ao vivo, com o meio fixo (centro do Sol, ρYₑ = 100 g/cm³) e a energia varrendo até a diagonal zerar em E_res = 1,88 MeV; aparece "50/50 · Mistura máxima → Ressonância". Ao lado, sin²2θₘ(E) e a composição de ν₂ₘ.
 
+## Slides 4–7: adiabaticidade
+
+Base instantânea de matéria e o termo dθₘ/dx; o cruzamento evitado (gap Δ sin2θ e |dθₘ/dx| na ressonância); γ_res e Landau–Zener com três casos calculados (Sol ⁸B 10 MeV γ ≈ 3×10³; frente gravada γ ≈ 5; frente física γ ≈ 0,01); animação da frente de choque de M15-7b atravessando a ressonância H a 20 MeV, com o neutrino seguindo ou pulando de ramo.
+
 ## Imagens
 
 Todas vêm do Wikimedia Commons, em domínio público ou Creative Commons. `assets/img/credits.json`
