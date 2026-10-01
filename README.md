@@ -98,6 +98,10 @@ MSW como problema de dois níveis: a matriz H = ½[[V − Δcos2θ, Δ sin2θ], 
 
 Base instantânea de matéria e o termo dθₘ/dx; o cruzamento evitado (gap Δ sin2θ e |dθₘ/dx| na ressonância); γ_res e Landau–Zener com três casos calculados (Sol ⁸B 10 MeV γ ≈ 3×10³; frente gravada γ ≈ 5; frente física γ ≈ 0,01); animação da frente de choque de M15-7b atravessando a ressonância H a 20 MeV, com o neutrino seguindo ou pulando de ramo.
 
+## Slide 36: o choque revivido
+
+Animação esquemática (não simulação) do mecanismo atrasado: corte do núcleo em escala radial log, choque nascendo a ~10 km, parando a ~150 km, região de ganho aquecida por neutrinos com convecção e SASI, revivescimento em ~0,3 s; ao lado, R_choque(t) com neutrinosfera e raio de ganho. Números típicos de ~15 M☉.
+
 ## Imagens
 
 Todas vêm do Wikimedia Commons, em domínio público ou Creative Commons. `assets/img/credits.json`
