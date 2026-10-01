@@ -15,14 +15,14 @@ LABEL = {
     'psr1913': 'PSR B1913+16', 'crab': 'Nebulosa do Caranguejo', 'sn1987a': 'SN 1987A', 'wr124': 'WR 124 (JWST)',
     'grb-mechanism': 'Mecanismo de GRB', 'grb-illustration': 'Ilustração de GRB', 'icecube-lab': 'IceCube Lab',
     'icecube-schematic': 'Esquema do IceCube', 'neutron-star': 'Estrela de nêutrons (ilustração)',
-    'juno': 'JUNO', 'supernova-nasa': 'Animação da supernova (vídeo)', 'hyperk': 'Hyper-Kamiokande', 'protodune': 'ProtoDUNE',
+    'juno': 'JUNO', 'hr-eso': 'Diagrama de Hertzsprung–Russell', 'supernova-nasa': 'Animação da supernova (vídeo)', 'hyperk': 'Hyper-Kamiokande', 'protodune': 'ProtoDUNE',
 }
 LABEL_EN = {
     'pauli-letter': "Pauli's letter, 1930", 'cowan-reines': 'Cowan and Reines', 'homestake-tank': 'Homestake tank',
     'pmt': '50 cm photomultiplier', 'standard-model': 'Standard Model', 'sun': 'The Sun (SDO)',
     'eclipse-1919': '1919 eclipse', 'crab': 'Crab Nebula', 'grb-mechanism': 'GRB mechanism',
     'grb-illustration': 'GRB illustration', 'icecube-schematic': 'IceCube schematic',
-    'neutron-star': 'Neutron star (illustration)', 'supernova-nasa': 'Supernova animation (video)',
+    'neutron-star': 'Neutron star (illustration)', 'hr-eso': 'Hertzsprung–Russell diagram', 'supernova-nasa': 'Supernova animation (video)',
 }
 meta = json.loads((ROOT / 'assets/img/credits.json').read_text())
 
