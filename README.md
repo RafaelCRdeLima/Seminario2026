@@ -74,7 +74,8 @@ Todos calculam no navegador, sem rede.
 
 | slide | o que faz |
 |---|---|
-| 8–9 | o espaço cai — modelo do rio (Hamilton & Lisle 2008): Schwarzschild em Gullstrand–Painlevé, espaço plano escoando a v = √(r_s/r) c; cascas cúbicas de referenciais em queda livre injetadas na borda e carregadas pelo rio. Slide 8: estrela de nêutrons 1,4 M☉, 12 km; slide 9: buraco negro de 6 M☉. Sem botões; arrastar gira; perfil da velocidade do rio e do ritmo de um relógio parado |
+| 8 | órbita de Mercúrio animada: rosácea da RG r = p/(1 + e cos kφ) com a precessão exagerada 3×10⁵×, lei das áreas, elipse de Newton tracejada; contadores com o avanço real (0,1035″ por órbita, 43″ por século) |
+| 9–10 | o espaço cai — modelo do rio (Hamilton & Lisle 2008): Schwarzschild em Gullstrand–Painlevé, espaço plano escoando a v = √(r_s/r) c; cascas cúbicas de referenciais em queda livre injetadas na borda e carregadas pelo rio. Slide 9: estrela de nêutrons 1,4 M☉, 12 km; slide 10: buraco negro de 6 M☉. Sem botões; arrastar gira; perfil da velocidade do rio e do ritmo de um relógio parado |
 | 14 | duas bases: eixos de sabor e de massa girados por θ, relógios de fase de ν₁ e ν₂, medições simuladas em massa (constantes) e em sabor (oscilam) |
 | 15 | P(ν_α→ν_β) a dois sabores contra L; faixa mín–máx por pixel quando a oscilação fica rápida |
 | 16 | Super-K: sobrevivência de ν_μ contra cos θ_z, assimetria cima/baixo comparada com −0,296 ± 0,048 |
