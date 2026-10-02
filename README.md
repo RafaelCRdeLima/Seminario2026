@@ -135,7 +135,8 @@ Com `prefers-reduced-motion` a animação para e a capa mostra um quadro fixo.
 ## Publicação
 
 Este repositório é a fonte. A cópia que vai ao ar fica em `homepage/site/talks/2026-ebn/`; depois de
-editar aqui, sincronize e publique a página pessoal:
+editar aqui, regenere os PDFs estáticos com `tools/pdf.sh` (um quadro por slide, ~2 min), sincronize e
+publique a página pessoal:
 
 ```bash
 rsync -a --delete --exclude .git --exclude .gitignore --exclude .github --exclude tools \
